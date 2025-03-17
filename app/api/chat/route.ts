@@ -55,17 +55,34 @@ export async function POST(req: Request) {
       )
     }
 
+    //* ----------------------------------------------------------------
+    //* Get the last input given from user
+    const modifiedMessages = [...messages]
+    console.log('modifiedMessages', modifiedMessages)
+
+    if (modifiedMessages.length > 0) {
+      const lastMessage = modifiedMessages[modifiedMessages.length - 1]
+
+      if (lastMessage.role === 'user') {
+        //* Add the fixed string to the last message (user's input)
+        lastMessage.content = `Make sure to answer these questions in the context of Web3 Development and Blockchain Technology. Prioritize Solidity for EVM and Rust for Solana. ${lastMessage.content}`
+      }
+
+      console.log('lastMessage', lastMessage)
+    }
+    //* ----------------------------------------------------------------
+
     const supportsToolCalling = selectedModel.toolCallType === 'native'
 
     return supportsToolCalling
       ? createToolCallingStreamResponse({
-          messages,
+          messages: modifiedMessages,
           model: selectedModel,
           chatId,
           searchMode
         })
       : createManualToolStreamResponse({
-          messages,
+          messages: modifiedMessages,
           model: selectedModel,
           chatId,
           searchMode
