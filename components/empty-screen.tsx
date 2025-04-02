@@ -3,20 +3,23 @@ import { ArrowRight } from 'lucide-react'
 
 const exampleMessages = [
   {
-    heading: 'What is DeepSeek R1?',
-    message: 'What is DeepSeek R1?'
+    heading: 'What is a Smart Contract?',
+    message: 'What is a Smart Contract and how does it work on Ethereum?'
   },
   {
-    heading: 'Why is Nvidia growing rapidly?',
-    message: 'Why is Nvidia growing rapidly?'
+    heading: 'Solidity vs Rust for Web3',
+    message:
+      'Compare Solidity and Rust for blockchain development. When should I use each?'
   },
   {
-    heading: 'Tesla vs Rivian',
-    message: 'Tesla vs Rivian'
+    heading: 'Ethereum vs Solana',
+    message:
+      'What are the key differences between Ethereum and Solana for dApp development?'
   },
   {
-    heading: 'Summary: https://arxiv.org/pdf/2501.05707',
-    message: 'Summary: https://arxiv.org/pdf/2501.05707'
+    heading: 'How to implement ERC-20 token?',
+    message:
+      'How do I create and deploy an ERC-20 token on Ethereum using Solidity?'
   }
 ]
 export function EmptyScreen({

@@ -65,7 +65,7 @@ export async function POST(req: Request) {
 
       if (lastMessage.role === 'user') {
         //* Add the fixed string to the last message (user's input)
-        lastMessage.content = `Make sure to answer these questions in the context of Web3 Development and Blockchain Technology. Prioritize Solidity for EVM and Rust for Solana. ${lastMessage.content}`
+        lastMessage.content = `Make sure to answer these questions in the context of Web3 Development and Blockchain Technology. Prioritize Solidity for EVM and use Rust if Solana is mentioned. ${lastMessage.content}`
       }
 
       console.log('lastMessage', lastMessage)
