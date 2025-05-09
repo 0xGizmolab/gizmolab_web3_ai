@@ -58,7 +58,7 @@ export async function POST(req: Request) {
     //* ----------------------------------------------------------------
     //* Get the last input given from user
     const modifiedMessages = [...messages]
-    console.log('modifiedMessages', modifiedMessages)
+    // console.log('modifiedMessages', modifiedMessages)
 
     if (modifiedMessages.length > 0) {
       const lastMessage = modifiedMessages[modifiedMessages.length - 1]
@@ -162,7 +162,7 @@ Headless components for custom logic hooks.
         lastMessage.content = PREFIX + lastMessage.content + SUFFIX
       }
 
-      console.log('lastMessage', lastMessage)
+      // console.log('lastMessage', lastMessage)
     }
     //* ----------------------------------------------------------------
 

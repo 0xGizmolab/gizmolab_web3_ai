@@ -1,15 +1,14 @@
-import { NextResponse } from 'next/server'
+import {
+  SearXNGResponse,
+  SearXNGResult,
+  SearXNGSearchResults,
+  SearchResultItem
+} from '@/lib/types'
+import { Redis } from '@upstash/redis'
 import http from 'http'
 import https from 'https'
 import { JSDOM, VirtualConsole } from 'jsdom'
-import {
-  SearXNGSearchResults,
-  SearXNGResponse,
-  SearXNGResult,
-  SearchResultItem
-} from '@/lib/types'
-import { Agent } from 'http'
-import { Redis } from '@upstash/redis'
+import { NextResponse } from 'next/server'
 import { createClient } from 'redis'
 
 /**
@@ -69,10 +68,10 @@ async function getCachedResults(
     }
 
     if (cachedData) {
-      console.log(`Cache hit for key: ${cacheKey}`)
+      // console.log(`Cache hit for key: ${cacheKey}`)
       return JSON.parse(cachedData)
     } else {
-      console.log(`Cache miss for key: ${cacheKey}`)
+      // console.log(`Cache miss for key: ${cacheKey}`)
       return null
     }
   } catch (error) {
@@ -96,7 +95,7 @@ async function setCachedResults(
     } else {
       await client.set(cacheKey, serializedResults, { EX: CACHE_TTL })
     }
-    console.log(`Cached results for key: ${cacheKey}`)
+    // console.log(`Cached results for key: ${cacheKey}`)
   } catch (error) {
     console.error('Redis cache error:', error)
   }
@@ -113,7 +112,7 @@ async function cleanupExpiredCache() {
       const ttl = await client.ttl(key)
       if (ttl <= 0) {
         await client.del(key)
-        console.log(`Removed expired cache entry: ${key}`)
+        // console.log(`Removed expired cache entry: ${key}`)
       }
     }
   } catch (error) {

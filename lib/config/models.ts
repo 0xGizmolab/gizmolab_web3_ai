@@ -24,7 +24,7 @@ export async function getModels(): Promise<Model[]> {
     if (baseUrlEnv) {
       try {
         baseUrlObj = new URL(baseUrlEnv)
-        console.log('Using BASE_URL environment variable:', baseUrlEnv)
+        // console.log('Using BASE_URL environment variable:', baseUrlEnv)
       } catch (error) {
         console.warn(
           'Invalid BASE_URL environment variable, falling back to headers'
@@ -38,7 +38,7 @@ export async function getModels(): Promise<Model[]> {
 
     // Construct the models.json URL
     const modelUrl = new URL('/config/models.json', baseUrlObj)
-    console.log('Attempting to fetch models from:', modelUrl.toString())
+    // console.log('Attempting to fetch models from:', modelUrl.toString())
 
     try {
       const response = await fetch(modelUrl, {
@@ -65,7 +65,7 @@ export async function getModels(): Promise<Model[]> {
 
       const config = JSON.parse(text)
       if (Array.isArray(config.models) && config.models.every(validateModel)) {
-        console.log('Successfully loaded models from URL')
+        // console.log('Successfully loaded models from URL')
         return config.models
       }
     } catch (error: any) {
@@ -79,7 +79,7 @@ export async function getModels(): Promise<Model[]> {
         Array.isArray(defaultModels.models) &&
         defaultModels.models.every(validateModel)
       ) {
-        console.log('Successfully loaded default models')
+        // console.log('Successfully loaded default models')
         return defaultModels.models
       }
     }

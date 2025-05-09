@@ -83,6 +83,7 @@ export function getModel(model: string) {
     })
   }
 
+  // @ts-expect-error - ignore error for now
   return registry.languageModel(model)
 }
 

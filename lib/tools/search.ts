@@ -33,9 +33,9 @@ export const searchTool = tool({
         ? 'advanced'
         : search_depth || 'basic'
 
-    console.log(
-      `Using search API: ${searchAPI}, Search Depth: ${effectiveSearchDepth}`
-    )
+    // console.log(
+    //   `Using search API: ${searchAPI}, Search Depth: ${effectiveSearchDepth}`
+    // )
 
     try {
       if (searchAPI === 'searxng' && effectiveSearchDepth === 'advanced') {
