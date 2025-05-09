@@ -17,7 +17,7 @@ const description =
   'A fully open-source AI-powered answer engine with a generative UI.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://morphic.sh'),
+  metadataBase: new URL('https://ai.gizmolab.io'),
   title,
   description,
   openGraph: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title,
     description,
     card: 'summary_large_image',
-    creator: '@miiura'
+    creator: '@gizmolab'
   }
 }
 

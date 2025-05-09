@@ -11,7 +11,7 @@ import { EmptyScreen } from './empty-screen'
 import { ModelSelector } from './model-selector'
 import { SearchModeToggle } from './search-mode-toggle'
 import { Button } from './ui/button'
-import { IconLogo } from './ui/icons'
+import { GizmolabAiDesktopLogo } from './ui/icons'
 
 interface ChatPanelProps {
   input: string
@@ -83,7 +83,7 @@ export function ChatPanel({
     >
       {messages.length === 0 && (
         <div className="mb-8">
-          <IconLogo className="size-12 text-muted-foreground" />
+          <GizmolabAiDesktopLogo className="w-56 text-muted-foreground" />
         </div>
       )}
       <form
